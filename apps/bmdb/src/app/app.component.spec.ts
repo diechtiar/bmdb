@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'bmdb'`, () => {
+  it(`should have as title 'Better Movie Database'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('bmdb');
+    expect(app.title).toEqual('Better Movie Database');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('bmdb app is running!');
+    expect(compiled.querySelector('.main h1')?.textContent).toContain('Better Movie Database');
   });
 });

@@ -1,0 +1,101 @@
+{
+  "projectType": "application",
+  "generators": {
+    "@schematics/angular:component": {
+      "style": "scss"
+    }
+  },
+  "sourceRoot": "apps/bmdb/src",
+  "prefix": "bmdb",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "options": {
+        "outputPath": "dist/apps/bmdb",
+        "index": "apps/bmdb/src/index.html",
+        "main": "apps/bmdb/src/main.ts",
+        "polyfills": "apps/bmdb/src/polyfills.ts",
+        "tsConfig": "apps/bmdb/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          "apps/bmdb/src/favicon.ico",
+          "apps/bmdb/src/assets"
+        ],
+        "styles": [
+          "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+          "apps/bmdb/src/styles.scss"
+        ],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/bmdb/src/environments/environment.ts",
+              "with": "apps/bmdb/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "bmdb:build:production"
+        },
+        "development": {
+          "browserTarget": "bmdb:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "bmdb:build"
+      }
+    },
+    "test": {
+      "executor": "@angular-devkit/build-angular:karma",
+      "options": {
+        "main": "apps/bmdb/src/test.ts",
+        "polyfills": "apps/bmdb/src/polyfills.ts",
+        "tsConfig": "apps/bmdb/tsconfig.spec.json",
+        "karmaConfig": "apps/bmdb/karma.conf.js",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          "apps/bmdb/src/favicon.ico",
+          "apps/bmdb/src/assets"
+        ],
+        "styles": [
+          "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+          "apps/bmdb/src/styles.scss"
+        ],
+        "scripts": []
+      }
+    }
+  }
+}
