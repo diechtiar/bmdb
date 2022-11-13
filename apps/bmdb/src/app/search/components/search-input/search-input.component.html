@@ -1,12 +1,11 @@
-<p>search-input works!</p>
 <mat-form-field class="example-form-field" appearance="fill">
-  <mat-label>Clearable input</mat-label>
-  <input matInput type="text" [(ngModel)]="value">
-  <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+  <mat-label>Search by movie title</mat-label>
+  <input matInput type="text" [(ngModel)]="value" [ngModelOptions]="{standalone: true}" (ngModelChange)="handleChange($event)">
+  <button matSuffix mat-icon-button aria-label="Clear" (click)="search()">
     <mat-icon>close</mat-icon>
   </button>
 </mat-form-field>
-<button mat-flat-button color="primary">
+<button mat-flat-button color="primary" (click)="search()">
   Search
   <mat-icon>search</mat-icon>
 </button>

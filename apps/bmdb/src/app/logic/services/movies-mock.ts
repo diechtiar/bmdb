@@ -1,4 +1,4 @@
-const mockSearchResults = {
+export const mockSearchResults = {
   "Search": [{
     "Title": "Ghost in the Shell",
     "Year": "2017",
@@ -62,7 +62,7 @@ const mockSearchResults = {
   }], "totalResults": "143", "Response": "True"
 };
 
-const mockMovieDetailsResult = {
+export const mockMovieDetailsResult = {
   "Title": "Ghost in the Shell: Stand Alone Complex - Solid State Society",
   "Year": "2006",
   "Rated": "Not Rated",

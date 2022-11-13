@@ -5,6 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ErrorHandlingModule } from "./error-handling/error-handling.module";
+import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
+import { ApiKeyInterceptor } from "./logic/interceptors/api-key.interceptor";
 
 @NgModule({
   declarations: [
@@ -12,11 +14,12 @@ import { ErrorHandlingModule } from "./error-handling/error-handling.module";
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     ErrorHandlingModule
   ],
-  providers: [],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: ApiKeyInterceptor, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

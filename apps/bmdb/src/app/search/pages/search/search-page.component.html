@@ -1,4 +1,14 @@
-<p>search page works!</p>
-<bmdb-search-input>
+<form #searchForm="ngForm">
+  <bmdb-search-input [(ngModel)]="searchTerm" name="search" (change)="search()">
 
-</bmdb-search-input>
+  </bmdb-search-input>
+</form>
+
+<ng-container *ngIf="(movies$ | async)?.Search as movies">
+  <h2>Search results</h2>
+  <div>{{ movies | json }}</div>
+</ng-container>
+<ng-container *ngIf="movieDetails$ | async as movieDetails">
+  <h2>Details</h2>
+  <div>{{ movieDetails | json }}</div>
+</ng-container>

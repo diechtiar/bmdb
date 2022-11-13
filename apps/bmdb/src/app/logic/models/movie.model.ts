@@ -1,4 +1,4 @@
-export interface SearchMoviesResp {
+export interface MoviesSearchResp {
   Search: MovieSearchDetails[],
   totalResults: string,
   Response: string
@@ -9,7 +9,7 @@ export interface MovieSearchDetails {
   Year: string,
   imdbID: string,
   Type: MovieType,
-  Poster
+  Poster: string,
 }
 
 export type MovieType = 'movie' | 'series' | 'episode';
