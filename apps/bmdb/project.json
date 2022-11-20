@@ -3,7 +3,7 @@
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
   "sourceRoot": "apps/bmdb/src",
-  "prefix": "init",
+  "prefix": "bmdb",
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
@@ -16,7 +16,9 @@
         "tsConfig": "apps/bmdb/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": ["apps/bmdb/src/favicon.ico", "apps/bmdb/src/assets"],
-        "styles": ["apps/bmdb/src/styles.scss"],
+        "styles": [
+          "@angular/material/prebuilt-themes/pink-bluegrey.css",
+          "apps/bmdb/src/styles.scss"],
         "scripts": []
       },
       "configurations": {
